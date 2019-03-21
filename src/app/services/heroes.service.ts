@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable()
 export class HeroesService {
 
@@ -55,12 +56,19 @@ export class HeroesService {
     }
   ];
 
-  constructor() {
+  constructor() {  }
 
-  }
+  // An experiment to check i
+  // this.http.get('assets/heroes.json').subscribe( (res:any) => {
+  //      console.log(res);
+  //  });
 
   getHeroes() {
     return this.heroes;
+  }
+
+  getHero(idx: string){
+    return this.heroes[idx];
   }
 
 }

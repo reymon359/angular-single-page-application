@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 // Routes
 import {APP_ROUTING} from './app.routes';
@@ -26,6 +27,7 @@ import { HeroComponent } from './components/hero/hero.component';
   ],
   imports: [
     BrowserModule,
+     HttpClientModule, // Include it after BrowserModule
     APP_ROUTING
   ],
   providers: [
