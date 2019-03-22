@@ -56,7 +56,7 @@ export class HeroesService {
     }
   ];
 
-  constructor() {  }
+  constructor() { }
 
   // An experiment to check i
   // this.http.get('assets/heroes.json').subscribe( (res:any) => {
@@ -67,8 +67,23 @@ export class HeroesService {
     return this.heroes;
   }
 
-  getHero(idx: string){
+  getHero(idx: string) {
     return this.heroes[idx];
+  }
+
+  searchHeroes(term: string):Hero[] {
+    let heroesArr: Hero[] = [];
+    term = term.toLowerCase();
+
+    for (let hero of this.heroes) {
+
+      let name = hero.name.toLowerCase();
+      if (name.indexOf(term) >= 0) {
+        heroesArr.push(hero);
+      }
+
+    }
+    return heroesArr;
   }
 
 }
