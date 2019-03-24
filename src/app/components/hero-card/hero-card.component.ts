@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +8,21 @@ import { Router } from '@angular/router';
 })
 export class HeroCardComponent implements OnInit {
 
-  @Input() hero:any = {}; // With the input i mean that the info can come from outside
-  @Input() index:number;
-  constructor( private router:Router) { }
+  @Input() hero: any = {}; // With the input i mean that the info can come from outside
+  @Input() index: number;
+
+  @Output() heroSelected: EventEmitter<number>; // It is going to emmit a index (number)
+
+  constructor(private router: Router) {
+    this.heroSelected = new EventEmitter(); // Initialize the EventEmitter
+  }
 
   ngOnInit() {
   }
 
-  seeHero(){
-        this.router.navigate(['/hero', this.index]);
+  seeHero() {
+    // OLD
+    // this.router.navigate(['/hero', this.index]);
+    this.heroSelected.emit(this.index);
   }
 }

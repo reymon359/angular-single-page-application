@@ -2,7 +2,7 @@
 <hr>
 
 <div class="card-columns">
-  <app-hero-card [hero]="hero" [index]="i" *ngFor="let hero of heroes; let i = index"></app-hero-card>
+  <app-hero-card (heroSelected)="seeHero($event)" [hero]="hero" [index]="i" *ngFor="let hero of heroes; let i = index"></app-hero-card>
   <!-- Old Cards -->
   <!-- <div class="card animated fadeIn fast" *ngFor="let hero of heroes; let i = index">
    <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
