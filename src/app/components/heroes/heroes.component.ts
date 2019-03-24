@@ -14,8 +14,10 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     this.heroes = this.heroesSer.getHeroes();
+    console.log(this.heroes);
   }
 
+  // Old code when we didnt use the app-hero-card
   seeHero(idx: number) {
     this.router.navigate(['/hero', idx]);
   }
