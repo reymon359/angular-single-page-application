@@ -25,7 +25,7 @@ import { SearchComponent } from './components/search/search.component';
     AboutComponent,
     HeroesComponent,
     HeroComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
