@@ -21,8 +21,9 @@ export class HeroCardComponent implements OnInit {
   }
 
   seeHero() {
-    // OLD
-    // this.router.navigate(['/hero', this.index]);
-    this.heroSelected.emit(this.index);
+    // The hero card redirects to the hero component
+    this.router.navigate(['/hero', this.index]);
+    // The hero card emmits an event to the father component who redirects to the hero component
+    // this.heroSelected.emit(this.index);
   }
 }

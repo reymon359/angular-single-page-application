@@ -71,18 +71,25 @@ export class HeroesService {
     return this.heroes[idx];
   }
 
-  searchHeroes(term: string):Hero[] {
+  searchHeroes(term: string): Hero[] {
     let heroesArr: Hero[] = [];
     term = term.toLowerCase();
-
-    for (let hero of this.heroes) {
-
+    // New for. To get the hero index in the search component
+    for (let i = 0; i < this.heroes.length; i++) {
+      let hero = this.heroes[i];
       let name = hero.name.toLowerCase();
       if (name.indexOf(term) >= 0) {
+        hero.idx = i;
         heroesArr.push(hero);
       }
-
     }
+    // OLD For
+    // for (let hero of this.heroes) {
+    //   let name = hero.name.toLowerCase();
+    //   if (name.indexOf(term) >= 0) {
+    //     heroesArr.push(hero);
+    //   }
+    // }
     return heroesArr;
   }
 
@@ -94,5 +101,6 @@ export interface Hero {
   bio: string,
   img: string,
   appearance: string,
-  house: string
+  house: string,
+  idx?: number
 };
